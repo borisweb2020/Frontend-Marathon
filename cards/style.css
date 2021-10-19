@@ -40,6 +40,7 @@ body {
     margin: 10px;
 
     cursor: pointer;
+    transition: all .3s ease-in-out;
 }
 
 .slide h3{
@@ -48,8 +49,6 @@ body {
     bottom: 20px;
     font-size: 24px;
     opacity: 0;
-
-    transition: opacity .2s ease-in;
 }
 
 .slide.active{
@@ -58,6 +57,7 @@ body {
 
 .slide.active h3{
     opacity: 1;
+    transition: opacity .5s ease-in-out .3s;
 }
 
 

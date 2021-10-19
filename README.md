@@ -4,7 +4,7 @@
     <p>два метода перебора массива NodeList, полученного путем
     querySelectorAll('.class_name'):</p>
     <ul>
-        <li>с помощью цикла for / of</li>
-        <li>с помощью метода forEach()</li>
+        <li>с помощью цикла <b><i>for / of</i></b></li>
+        <li>с помощью метода <b><i>forEach()</i></b></li>
     </ul></li>
 </ol>
