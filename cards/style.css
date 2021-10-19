@@ -37,6 +37,7 @@ body {
     background-size: cover;
     color: #fff;
     border-radius: 20px;
+    margin: 10px;
 
     cursor: pointer;
 }
