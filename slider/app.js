@@ -9,7 +9,7 @@ const $container = document.querySelector('.container');
 const slidesCount = $mainSlide.querySelectorAll('div').length;
 
 // Смещаем позицию sidebar в зависимости от числа слайдов
-$sideBar.style.top = `-${(slidesCount - 1) * 100}vh`; // -300vh
+// $sideBar.style.top = `-${(slidesCount - 1) * 100}vh`; // -300vh
 
 // Переменная, которая следит какой сейчас слайд активен:
 let activeSlideIndex = 0; // in default = 0
@@ -43,5 +43,5 @@ function changeSlide(direction){
     const height = $container.clientHeight;
 
     $mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
-    $sideBar.style.transform = `translateY(${activeSlideIndex * height}px)`;
+    $sideBar.style.transform = `translateY(-${activeSlideIndex * height}px)`;
 }
