@@ -7,5 +7,6 @@
         <li>с помощью цикла <b><i>for / of</i></b></li>
         <li>с помощью метода <b><i>forEach()</i></b></li>
     </ul></li>
-    <li>Drag and Drops</li>
+    <li>Drag and Drop</li>
+    <li>Slider</li>
 </ol>
