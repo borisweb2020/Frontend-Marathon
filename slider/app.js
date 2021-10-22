@@ -61,3 +61,16 @@ const images = new Promise(function(resolve, reject){
     imagesRequest.open('GET', 'images.json');
     imagesRequest.send();
 });
+
+images.then(result =>{
+    const imagesObj = createObject(result);
+    const imagesArr = imagesObj.images;
+    console.log(imagesArr);
+}).catch(error =>{
+    console.log(error);
+});
+
+function createObject(value){
+    const obj = JSON.parse(value);
+    return obj;
+}
