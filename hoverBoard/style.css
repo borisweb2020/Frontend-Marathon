@@ -19,6 +19,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 .square{
@@ -27,7 +29,9 @@ body {
   background-color: #1d1d1d;
   margin: 2px;
   box-shadow: 0 0 2px #000;
-  transition: 2s ease;
+  transition: 2.2s ease;
+
+  border-radius: 100%;
 }
 
 .square:hover{
