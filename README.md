@@ -9,4 +9,5 @@
     </ul></li>
     <li>Drag and Drop</li>
     <li>Slider</li>
+    <li>Hover Board</li>
 </ol>
