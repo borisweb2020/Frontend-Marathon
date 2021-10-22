@@ -45,3 +45,19 @@ function changeSlide(direction){
     $mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
     $sideBar.style.transform = `translateY(-${activeSlideIndex * height}px)`;
 }
+
+
+
+
+const images = new Promise(function(resolve, reject){
+    const imagesRequest = new XMLHttpRequest();
+    imagesRequest.onload = function(){
+        if(imagesRequest.status === 200){
+            resolve(this.responseText);
+        } else {
+            reject('ERROR ' + imagesRequest.status);
+        }
+    }
+    imagesRequest.open('GET', 'images.json');
+    imagesRequest.send();
+});

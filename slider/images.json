@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "title": "Old quater in Prague",
+      "url": "https://cdn.pixabay.com/photo/2021/10/02/18/49/square-6676128_960_720.jpg",
+      "description": "Squares, historical sites"
+    },
+    {
+      "title": "Pretty cat",
+      "url": "https://cdn.pixabay.com/photo/2021/09/02/16/48/cat-6593947_960_720.jpg",
+      "description": "Adorable pets"
+    },
+    {
+      "title": "White water lily",
+      "url": "https://cdn.pixabay.com/photo/2020/04/24/15/58/white-water-lily-5087465_960_720.jpg",
+      "description": "Flowers and pond"
+    },
+    {
+      "title": "Seagulls looking forward to",
+      "url": "https://cdn.pixabay.com/photo/2021/10/08/06/45/seagulls-6690361_960_720.jpg",
+      "description": "Birds, nature, ocean"
+    }
+  ]
+}
