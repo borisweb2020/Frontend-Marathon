@@ -10,4 +10,5 @@
     <li>Drag and Drop</li>
     <li>Slider</li>
     <li>Hover Board</li>
+    <li>Aim Game</li>
 </ol>
