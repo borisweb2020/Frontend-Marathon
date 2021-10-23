@@ -61,8 +61,10 @@ function createRandomCircle(){
   const {width, height} = $board.getBoundingClientRect();
   const x = getRandomNumber(0, width - size);
   const y = getRandomNumber(0, height - size);
+  const color = `hsl(${getRandomValue()}, 80%, 65%)`;
 
   circle.classList.add('circle');
+  circle.style.backgroundColor = color;
   circle.style.width = `${size}px`;
   circle.style.height = `${size}px`;
   circle.style.top = `${y}px`;
@@ -73,4 +75,9 @@ function createRandomCircle(){
 
 function getRandomNumber(min, max){
   return Math.round(Math.random() * (max - min) + min);
+}
+
+function getRandomValue(){
+  const index = Math.floor(Math.random() * 360);
+  return index;
 }
