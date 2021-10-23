@@ -5,25 +5,10 @@ const $sideBar = document.querySelector('.sidebar');
 const $mainSlide = document.querySelector('.main-slide');
 const $container = document.querySelector('.container');
 
-// Расчет количесвто div-ов (слайдов) внутри:
-const slidesCount = $mainSlide.querySelectorAll('div').length;
 
-// Смещаем позицию sidebar в зависимости от числа слайдов
-// $sideBar.style.top = `-${(slidesCount - 1) * 100}vh`; // -300vh
+let activeSlideIndex = 0;
 
-// Переменная, которая следит какой сейчас слайд активен:
-let activeSlideIndex = 0; // in default = 0
-
-
-$upBtn.addEventListener('click', ()=>{
-    changeSlide('up');
-});
-
-$downBtn.addEventListener('click', ()=>{
-    changeSlide('down');
-});
-
-function changeSlide(direction){
+function changeSlide(direction, slidesCount){
 
     if(direction === 'up'){
         activeSlideIndex++;
@@ -39,7 +24,6 @@ function changeSlide(direction){
         }
     }
 
-    // Вычисляем высоту контейнера, на которую будут перемещаться слайды:
     const height = $container.clientHeight;
 
     $mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
@@ -65,7 +49,15 @@ const images = new Promise(function(resolve, reject){
 images.then(result =>{
     const imagesObj = createObject(result);
     const imagesArr = imagesObj.images;
-    console.log(imagesArr);
+    createSlides(imagesArr);
+
+    $upBtn.addEventListener('click', ()=>{
+        changeSlide('up', imagesArr.length);
+    });
+
+    $downBtn.addEventListener('click', ()=>{
+        changeSlide('down', imagesArr.length);
+    });
 }).catch(error =>{
     console.log(error);
 });
@@ -74,3 +66,44 @@ function createObject(value){
     const obj = JSON.parse(value);
     return obj;
 }
+
+function createElement(tag, className){
+    const el = document.createElement(tag);
+
+    if(className){
+        el.classList.add(className);
+    }
+
+    return el;
+}
+
+function createSlides(array){
+    for(let obj of array){
+        const divEl = createElement('div', 'main-slide__item');
+
+        const imgEl = createElement('img', 'main-slide__img');
+        imgEl.src = obj.url;
+        imgEl.alt = obj.title;
+        divEl.append(imgEl);
+
+        $mainSlide.append(divEl);
+
+        const divElSide = createElement('div');
+        divElSide.style.background = `linear-gradient(90deg, ${obj.mainColor} 0%, ${obj.subColor} 100%)`;
+
+        const h1El = createElement('h1');
+        h1El.textContent = obj.title;
+        const pEl = createElement('p');
+        pEl.textContent = obj.description;
+        divElSide.append(h1El, pEl);
+
+        $sideBar.append(divElSide);
+    }
+}
+
+
+
+
+
+
+
