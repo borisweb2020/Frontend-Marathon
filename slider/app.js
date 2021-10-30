@@ -5,34 +5,6 @@ const $sideBar = document.querySelector('.sidebar');
 const $mainSlide = document.querySelector('.main-slide');
 const $container = document.querySelector('.container');
 
-
-let activeSlideIndex = 0;
-
-function changeSlide(direction, slidesCount){
-
-    if(direction === 'up'){
-        activeSlideIndex++;
-
-        if(activeSlideIndex === slidesCount){
-            activeSlideIndex = 0;
-        }
-    } else if(direction === 'down'){
-        activeSlideIndex--;
-
-        if(activeSlideIndex < 0){
-            activeSlideIndex = slidesCount - 1;
-        }
-    }
-
-    const height = $container.clientHeight;
-
-    $mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
-    $sideBar.style.transform = `translateY(-${activeSlideIndex * height}px)`;
-}
-
-
-
-
 const images = new Promise(function(resolve, reject){
     const imagesRequest = new XMLHttpRequest();
     imagesRequest.onload = function(){
@@ -49,14 +21,44 @@ const images = new Promise(function(resolve, reject){
 images.then(result =>{
     const imagesObj = createObject(result);
     const imagesArr = imagesObj.images;
-    createSlides(imagesArr);
+    for(let i = 0; i < 100; i++){
+        createSlides(imagesArr);
+    }
+
+    const slidesCount = $mainSlide.querySelectorAll('div').length;
+    const medium = slidesCount / 2;
+    const height = $container.clientHeight;
+    $mainSlide.style.top = `-${medium * 100}vh`;
+    $sideBar.style.top = `-${medium * 100}vh`;
+
+    let activeSlideIndex = 0;
+
+    function changeSlide(direction){
+
+        if(direction === 'up'){
+            activeSlideIndex++;
+        } else if(direction === 'down'){
+            activeSlideIndex--;
+        }
+
+        if(activeSlideIndex > 0){
+            $mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
+            $sideBar.style.transform = `translateY(-${activeSlideIndex * height}px)`;
+        } else {
+            activeSlideIndexABS = Math.abs(activeSlideIndex);
+            $mainSlide.style.transform = `translateY(${activeSlideIndexABS * height}px)`;
+            $sideBar.style.transform = `translateY(${activeSlideIndexABS * height}px)`;
+        }
+
+
+    }
 
     $upBtn.addEventListener('click', ()=>{
-        changeSlide('up', imagesArr.length);
+        changeSlide('up');
     });
 
     $downBtn.addEventListener('click', ()=>{
-        changeSlide('down', imagesArr.length);
+        changeSlide('down');
     });
 }).catch(error =>{
     console.log(error);

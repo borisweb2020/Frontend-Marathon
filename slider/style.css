@@ -22,7 +22,7 @@ body {
   height: 100%;
   width: 35%;
   position: absolute;
-  top: 0;
+  /* top: 0; */
   left: 0;
   transition: transform 0.5s ease-in-out;
 }
@@ -70,16 +70,22 @@ body {
 }
 
 button {
-  background-color: #fff;
-  border: none;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 15px;
+  padding: 0;
+	border: none;
+	cursor: pointer;
+	background: none;
+	outline: none;
+
+  width: 50px;
+  height: 50px;
+
+  transition: box-shadow .2s linear;
 }
 
 button:hover {
-  color: #222;
+  box-shadow: 0 0 5px #000,
+              0 0 15px #000,
+              0 0 30px #000;
 }
 
 button:focus {
@@ -103,4 +109,18 @@ button:focus {
   transform: translateY(-100%);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.up-button > img,
+.down-button > img{
+  width: 100%;
+  height: auto;
+}
+
+.up-button > img{
+  transform: rotate(-90deg);
+}
+
+.down-button > img{
+  transform: rotate(90deg);
 }

@@ -27,6 +27,13 @@
       "description": "Birds, nature, ocean",
       "mainColor": "#3b618d",
       "subColor": "#c0c8d3"
+    },
+    {
+      "title": "The owl looking toward a forest",
+      "url": "https://cdn.pixabay.com/photo/2021/10/01/20/26/eurasian-pygmy-owl-6673562_960_720.jpg",
+      "description": "Birds, nature, forest",
+      "mainColor": "#373B44",
+      "subColor": "#4286f4"
     }
   ]
 }
